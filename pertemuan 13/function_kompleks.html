@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Function Kompleks</title>
+  </head>
+  <body>
+    <h2>Menghitung Nilai Akhir Mahasiswa</h2>
+
+    <script>
+      function hitungNilai(tugas, uts, uas) {
+        let nilaiAkhir = tugas * 0.3 + uts * 0.3 + uas * 0.4;
+
+        if (nilaiAkhir >= 90) {
+          return "A";
+        } else if (nilaiAkhir >= 80) {
+          return "B";
+        } else if (nilaiAkhir >= 70) {
+          return "C";
+        } else if (nilaiAkhir >= 60) {
+          return "D";
+        } else {
+          return "E";
+        }
+      }
+
+      let tugas = 85;
+      let uts = 80;
+      let uas = 90;
+
+      let grade = hitungNilai(tugas, uts, uas);
+
+      document.write("Nilai Tugas : " + tugas + "<br>");
+      document.write("Nilai UTS : " + uts + "<br>");
+      document.write("Nilai UAS : " + uas + "<br>");
+      document.write("Grade : " + grade);
+    </script>
+  </body>
+</html>

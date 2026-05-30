@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktek JS: Operator Kasir</title>
+    <style>
+        /* CSS INTERNAL */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #5cb85c;
+            padding-bottom: 10px;
+        }
+        .result-box {
+            background-color: #eef7ee;
+            border-left: 5px solid #5cb85c;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HTML SINTAKS & TAG -->
+        <h2>Struk Digital Toko Kita</h2>
+        
+        <div class="result-box">
+            <!-- OUTPUT JAVASCRIPT AKAN MUNCUL DI SINI -->
+            <p><strong>Detail Pembelian:</strong></p>
+            <p id="info-barang"></p>
+            <hr>
+            <p id="total-awal"></p>
+            <p id="status-diskon"></p>
+            <p id="total-akhir" class="highlight"></p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT TAG -->
+    <script>
+        // 1. VARIABEL & OPERATOR PENUGASAN (Inisialisasi)
+        let hargaBarang = 25000; 
+        let jumlahBeli = 5;      
+        let diskon = 0;
+
+        // 2. OPERATOR ARITMATIKA (*)
+        let totalBelanja = hargaBarang * jumlahBeli; 
+
+        // 3. OPERATOR PEMBANDING (>) & Logika Diskon
+        let dapatDiskon = totalBelanja > 100000; 
+        let teksDiskon = "";
+
+        if (dapatDiskon) {
+            diskon = totalBelanja * 0.1; // Diskon 10% (Aritmatika)
+            // 4. OPERATOR PENUGASAN (-=)
+            totalBelanja -= diskon; 
+            teksDiskon = "Selamat! Anda mendapat diskon 10% (Potongan: Rp " + diskon + ")";
+        } else {
+            teksDiskon = "Maaf, belum mencapai batas minimum Rp 100.000 untuk diskon.";
+        }
+
+        // 5. OUTPUT JAVASCRIPT (Mengubah isi HTML via DOM)
+        document.getElementById("info-barang").innerText = "Harga: Rp " + hargaBarang + " x " + jumlahBeli + " pcs";
+        document.getElementById("total-awal").innerText = "Total Awal: Rp " + (totalBelanja + diskon);
+        document.getElementById("status-diskon").innerText = "Status: " + teksDiskon;
+        document.getElementById("total-akhir").innerText = "Total Bayar: Rp " + totalBelanja;
+    </script>
+</body>
+</html>
