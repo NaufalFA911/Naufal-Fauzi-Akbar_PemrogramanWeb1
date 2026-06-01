@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Mahasiswa</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Menghubungkan ke File CSS Eksternal -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header Section -->
+      <div class="header">
+        <div class="header-icon">🎓</div>
+        <div>
+          <h1>Data Mahasiswa</h1>
+          <p>Manajemen data mahasiswa dengan array object</p>
+        </div>
+      </div>
+
+      <!-- Card Form Input -->
+      <div class="card">
+        <div class="card-title">✏️ Form Input</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>NIM</label>
+            <input type="text" id="nim" placeholder="Contoh: 123456789" />
+          </div>
+          <div class="form-group">
+            <label>Nama Lengkap</label>
+            <input type="text" id="nama" placeholder="Contoh: John Doe" />
+          </div>
+          <div class="form-group">
+            <label>Jurusan</label>
+            <select id="jurusan">
+              <option value="">-- Pilih Jurusan --</option>
+              <option>Teknik Informatika</option>
+              <option>Sistem Informasi</option>
+              <option>Teknik Komputer</option>
+              <option>Ilmu Komputer</option>
+              <option>Teknologi Informasi</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Fakultas</label>
+            <select id="fakultas">
+              <option value="">-- Pilih Fakultas --</option>
+              <option>Teknik</option>
+              <option>Ilmu Komputer</option>
+              <option>MIPA</option>
+              <option>Ekonomi</option>
+              <option>Hukum</option>
+            </select>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="tambahMahasiswa()">
+            ➕ Tambah Mahasiswa
+          </button>
+          <button class="btn btn-success" onclick="updateMahasiswa()">
+            💾 Update Data
+          </button>
+          <button class="btn btn-reset" onclick="resetForm()">↺ Reset</button>
+          <span id="edit-badge">⚠️ Mode Edit Aktif</span>
+        </div>
+      </div>
+
+      <!-- Card Daftar Mahasiswa / Tabel -->
+      <div class="card">
+        <div class="card-title">📋 Daftar Mahasiswa</div>
+        <div class="stats-row" id="stats-row"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Jurusan</th>
+                <th>Fakultas</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+          <div id="empty-state" class="empty-state">
+            <div class="icon">📭</div>
+            <p>Belum ada data mahasiswa. Silakan tambah data di atas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Komponen Toast Notification -->
+    <div id="toast"></div>
+
+    <!-- Menghubungkan ke File JavaScript Eksternal -->
+    <script src="script.js"></script>
+  </body>
+</html>
